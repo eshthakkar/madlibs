@@ -16,7 +16,10 @@ AWESOMENESS = [
 def start_here():
     """Homepage."""
 
-    return "Hi! This is the home page."
+    return """<html>
+    Hi! This is the home page. <br>
+    <a href="/hello">Come say hello, new friend!</a>
+    </html>"""
 
 
 @app.route('/hello')
@@ -37,6 +40,31 @@ def greet_person():
     return render_template("compliment.html",
                            person=player,
                            compliment=compliment)
+
+@app.route('/game')
+def show_madlib_form():
+    """Play game"""
+
+    response = request.args.get("game")
+
+    if response == "yes":
+        return render_template("game.html")
+    return render_template("goodbye.html")
+
+@app.route('/madlib')
+def show_madlib():
+    """ Shows madlib form data as text"""
+
+    player = request.args.get("player")
+    color = request.args.get("color")
+    noun = request.args.get("noun")
+    adjective = request.args.getlist("adjective")
+
+    return render_template("madlib.html",player=player,
+                           color=color,noun=noun,adjective=adjective) 
+
+
+
 
 
 if __name__ == '__main__':
