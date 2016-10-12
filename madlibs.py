@@ -58,8 +58,15 @@ def show_madlib():
     player = request.args.get("player")
     color = request.args.get("color")
     noun = request.args.get("noun")
+    food = request.args.get("food")
+    city = request.args.get("city")
+    activity = request.args.get("activity")
     adjectives = request.args.getlist("adjective")
     adjective = ""
+
+    templates = ["madlib.html","madlib2.html"]
+
+    template = choice(templates)
 
     for i in range(len(adjectives)-1):
         adjective += adjectives[i] + ", "
@@ -67,8 +74,9 @@ def show_madlib():
     adjective += adjectives[-1]    
 
 
-    return render_template("madlib.html",player=player,
-                           color=color,noun=noun,adjective=adjective) 
+    return render_template(template,player=player,
+                           color=color,noun=noun,adjective=adjective,
+                           activity=activity,city=city,food=food) 
 
 
 

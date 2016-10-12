@@ -1,11 +1,10 @@
-<!doctype html>
-<html>
-<head>
-  <title>Boom! Game results</title>
-</head>
-<body>
-<p>
-There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ player }} went to pick it up, it burst into flames in a totally {{ adjective }} way.
-</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+Boom! Game results!
+{% endblock %}
+
+{% block content %}
+There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ player }} went to pick it up, it burst into flames in a totally {{ adjective }} way. <br>
+Luckily {{ player }} was unharmed and had a {{ food }} on him. {{ player }} decided this was an excellent time to eat his {{ food }} by the cozy 'bonfire'. What an exciting day in {{ city }}, let's go {{ activity }}. 
+{% endblock %} 
