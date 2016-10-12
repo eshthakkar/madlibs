@@ -5,17 +5,7 @@
 </head>
 <body>
 <p>
-There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ player }} went to pick it up, it burst into flames in a totally 
-{% if adjective|length > 1 %}
-  {% for item in adjective %}
-    <span> {{ item }},</span>
-  {% endfor %}
-{% else %} 
-  {% for item in adjective %}
-    {{ item }} 
-  {% endfor %}
-{% endif %} way.
-
+There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ player }} went to pick it up, it burst into flames in a totally {{ adjective }} way.
 </p>
 </body>
 </html>
